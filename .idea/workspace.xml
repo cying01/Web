@@ -679,7 +679,7 @@
       <workItem from="1530253288083" duration="1270000" />
       <workItem from="1530255147647" duration="42000" />
       <workItem from="1530255669219" duration="986000" />
-      <workItem from="1530257754024" duration="641000" />
+      <workItem from="1530257754024" duration="1365000" />
     </task>
     <task id="LOCAL-00001" summary="SSM整合搭建">
       <created>1530249760636</created>
@@ -730,11 +730,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530258293872</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="01">
+      <created>1530258410018</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1530258410018</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14350000" />
+    <option name="totallyTimeSpent" value="15074000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
