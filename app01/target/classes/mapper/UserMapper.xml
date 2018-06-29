@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.dao.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.cy.domain.User">
+    <id column="Uid" jdbcType="INTEGER" property="uid" />
+    <result column="Realname" jdbcType="VARCHAR" property="realname" />
+    <result column="Comname" jdbcType="VARCHAR" property="comname" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="Postcode" jdbcType="INTEGER" property="postcode" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="Wwang" jdbcType="VARCHAR" property="wwang" />
+    <result column="MSN" jdbcType="VARCHAR" property="msn" />
+    <result column="Telephone" jdbcType="INTEGER" property="telephone" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Uid, Realname, Comname, Email, Postcode, QQ, Wwang, MSN, Telephone, Phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where Uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where Uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cy.domain.User">
+    insert into user (Uid, Realname, Comname, 
+      Email, Postcode, QQ, 
+      Wwang, MSN, Telephone, 
+      Phone)
+    values (#{uid,jdbcType=INTEGER}, #{realname,jdbcType=VARCHAR}, #{comname,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{postcode,jdbcType=INTEGER}, #{qq,jdbcType=VARCHAR}, 
+      #{wwang,jdbcType=VARCHAR}, #{msn,jdbcType=VARCHAR}, #{telephone,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cy.domain.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        Uid,
+      </if>
+      <if test="realname != null">
+        Realname,
+      </if>
+      <if test="comname != null">
+        Comname,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="postcode != null">
+        Postcode,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="wwang != null">
+        Wwang,
+      </if>
+      <if test="msn != null">
+        MSN,
+      </if>
+      <if test="telephone != null">
+        Telephone,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="comname != null">
+        #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wwang != null">
+        #{wwang,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null">
+        #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cy.domain.User">
+    update user
+    <set>
+      <if test="realname != null">
+        Realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="comname != null">
+        Comname = #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        Postcode = #{postcode,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wwang != null">
+        Wwang = #{wwang,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null">
+        MSN = #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        Telephone = #{telephone,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cy.domain.User">
+    update user
+    set Realname = #{realname,jdbcType=VARCHAR},
+      Comname = #{comname,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      Postcode = #{postcode,jdbcType=INTEGER},
+      QQ = #{qq,jdbcType=VARCHAR},
+      Wwang = #{wwang,jdbcType=VARCHAR},
+      MSN = #{msn,jdbcType=VARCHAR},
+      Telephone = #{telephone,jdbcType=INTEGER},
+      Phone = #{phone,jdbcType=VARCHAR}
+    where Uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

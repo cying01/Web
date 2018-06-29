@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <properties  resource="jdbc.properties"/>
+
+    <context  id="mysqlTables"   targetRuntime="MyBatis3">
+
+        <!-- 防止生成的代码中有很多注释，加入下面的配置控制 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection  driverClass="${jdbc.driverClassName}"
+                         connectionURL="${jdbc.url}"  userId="${jdbc.username}"  password="${jdbc.password}"/>
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals"  value="false"/>
+        </javaTypeResolver>
+        <!--自动生成的实体的存放包路径 -->
+        <javaModelGenerator  targetPackage="com.cy.domain" targetProject="src/main/java">
+            <property  name="enableSubPackages"  value="true"/>
+            <property  name="trimStrings"  value="true"/>
+        </javaModelGenerator>
+
+        <!--自动生成的*Mapper.xml文件存放路径 -->
+        <sqlMapGenerator  targetPackage="mapper" targetProject="src/main/resources">
+            <property  name="enableSubPackages"  value="true"/>
+        </sqlMapGenerator>
+
+        <!--
+              1，ANNOTATEDMAPPER：会生成使用Mapper接口+Annotation的方式创建（SQL生成在annotation中），不会生成对应的XML；
+              2，MIXEDMAPPER：使用混合配置，会生成Mapper接口，并适当添加合适的Annotation，但是XML会生成在XML中；
+              3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
+        -->
+        <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cy.dao.mapper"  targetProject="src/main/java">
+            <property  name="enableSubPackages"  value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="t_stu"  domainObjectName="TStu"
+                enableCountByExample="false"   enableUpdateByExample="false"
+                enableDeleteByExample="false"  enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            &lt;!&ndash;generatedKey用于生成生成主键的方法,指定自增加以及Id
+            <generatedKey  column="ID"  sqlStatement="MySql" identity="true"/>
+            &ndash;&gt;
+        </table>-->
+        <!--<table  tableName=""   domainObjectName="User" enableCountByExample="false"   enableUpdateByExample="false"-->
+                <!--enableDeleteByExample="false"  enableSelectByExample="false"-->
+                <!--selectByExampleQueryId="false"></table>-->
+        <table  tableName="user"   domainObjectName="User" enableCountByExample="false"   enableUpdateByExample="false"
+                enableDeleteByExample="false"  enableSelectByExample="false"
+                selectByExampleQueryId="false"></table>
+
+    </context>
+</generatorConfiguration>
